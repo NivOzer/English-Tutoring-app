@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View ,Modal,TouchableOpacity,Linking} from 'react-native'
 import React,{useState} from 'react'
-import { Checkbox } from '@gluestack-ui/themed';
+
 type Props = {
     name: String;
     time: String;
@@ -13,7 +13,7 @@ type Props = {
 
 const StudentDetails = (props: Props) => {
     const { modalVisible, setModalVisible } = props;
-    const [showMeterial, setShowMaterial] = useState(false);
+    const [showMaterial, setShowMaterial] = useState(false);
   return (
     <View>
     <Modal
@@ -38,17 +38,15 @@ const StudentDetails = (props: Props) => {
                 <Text style={[styles.modalDetails, styles.modalDetailsText]} onPress={() => Linking.openURL(`tel:${props.parentPhone}`)}>{props.parentPhone}</Text>
               </View>
               <View style={styles.modalDetailsContainer}>
-            <TouchableOpacity onPress={() => setShowMaterial(!showMeterial)}>
-                <Text style={styles.modalDetails}>חומרים לשיעור</Text>
-            </TouchableOpacity>
-            {showMeterial && (
-            <View style={styles.checkboxMenu}>
-            {/* Checkbox menu items */}
-            <Text>Checkbox 1</Text>
-            <Text>Checkbox 2</Text>
-            {/* Add more checkboxes as needed */}
-            </View>
-        )}
+              <TouchableOpacity style={styles.materialDetails} onPress={() => setShowMaterial(!showMaterial)}>
+                <Text style={[styles.materialDetailsTitle, { textAlign: 'center' }]}>חומרים לשיעור</Text>
+              </TouchableOpacity>
+            {showMaterial && (
+                <View style={styles.checkboxMenu}>
+                    <Text>Material 1</Text>
+                    <Text>Material 2</Text>
+                </View>
+            )}
               </View>
             </View>
       <TouchableOpacity
@@ -109,12 +107,21 @@ const styles = StyleSheet.create({
         color:'white',
         padding:'10%',
       },
-      checkboxMenu: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 10,
-        borderWidth: 1,
-        borderColor: 'gray',
-        padding: 10,
+      materialDetails:{
+        backgroundColor:'#f4f4f4',
+        width:'60%',
+        borderRadius:10,
+        marginTop:'6%',
+    },
+      materialDetailsTitle:{
+        fontSize:20,
+        padding:'10%',
+        color:'#2d2d2d',
+        textAlign:'center'
       },
+      checkboxMenu: {
+        marginTop: 10,
+      },
+      
+
 })
