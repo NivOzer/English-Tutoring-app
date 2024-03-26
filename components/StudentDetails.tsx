@@ -37,18 +37,25 @@ const StudentDetails = (props: Props) => {
                 <Text style={styles.modalDetails}>נייד הורה: </Text>
                 <Text style={[styles.modalDetails, styles.modalDetailsText]} onPress={() => Linking.openURL(`tel:${props.parentPhone}`)}>{props.parentPhone}</Text>
               </View>
-              <View style={styles.modalDetailsContainer}>
-              <TouchableOpacity style={styles.materialDetails} onPress={() => setShowMaterial(!showMaterial)}>
-                <Text style={[styles.materialDetailsTitle, { textAlign: 'center' }]}>חומרים לשיעור</Text>
-              </TouchableOpacity>
-            {showMaterial && (
-                <View style={styles.checkboxMenu}>
-                    <Text>Material 1</Text>
-                    <Text>Material 2</Text>
-                </View>
-            )}
-              </View>
             </View>
+
+
+        <TouchableOpacity
+        style={styles.materialDetails}
+        onPress={() => setShowMaterial(!showMaterial)}
+        >
+        <Text style={styles.materialDetailsTitle}>חומרים לשיעור</Text>
+        </TouchableOpacity>
+        {showMaterial && (
+            <View>
+                <Text>Material 1</Text>
+                <Text>Material 2</Text>
+            </View>
+        )}
+
+
+
+
       <TouchableOpacity
         style={styles.modalClose}
         onPress={() => setModalVisible(false)}
@@ -107,21 +114,17 @@ const styles = StyleSheet.create({
         color:'white',
         padding:'10%',
       },
+    
       materialDetails:{
-        backgroundColor:'#f4f4f4',
+        backgroundColor:"#979797",
+        alignItems:'center',
+        justifyContent:"center",
         width:'60%',
-        borderRadius:10,
-        marginTop:'6%',
-    },
+        borderRadius:20,
+      },
       materialDetailsTitle:{
         fontSize:20,
+        color:'white',
         padding:'10%',
-        color:'#2d2d2d',
-        textAlign:'center'
       },
-      checkboxMenu: {
-        marginTop: 10,
-      },
-      
-
 })
