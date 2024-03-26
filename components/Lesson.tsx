@@ -1,17 +1,23 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 import React from 'react'
 
 type Props = {
   name:String
   time:String
+  weekDay:String
 }
 
 const Lesson = (props: Props) => {
   return (
+    <TouchableOpacity onPress={()=>{
+      console.log("lesson pressed")
+    }}>
     <View style={styles.container}>
-      <Text>{props.time}</Text>
-      <Text>{props.name}</Text>
+      <Text style={styles.text}>{props.time}</Text>
+      <Text style={styles.text}>{props.name}</Text>
+      <Text style={styles.text}>{props.weekDay}</Text>
     </View>
+    </TouchableOpacity>
   )
 }
 
@@ -23,6 +29,11 @@ const styles = StyleSheet.create({
       backgroundColor:"#F8F8FF",
       width:'50%',
       justifyContent:"space-between",
-      padding:"3%"
+      padding:"3%",
+      margin:"0.5%",
+      fontSize:16
+    },
+    text:{
+      fontSize:17,
     }
 })
