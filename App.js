@@ -2,32 +2,23 @@ import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View, Image } from "react-native";
 import Lesson from "./components/Lesson";
 import logo from "./Logo.png";
+import lessonData from "./lessons.json";
+
 export default function App() {
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} resizeMode="contain" />
       <StatusBar style="auto" />
-      <Lesson
-        name="איילון"
-        time="17:00"
-        weekDay="ראשון"
-        phone="54-884-1196"
-        parentPhone="541111111"
-      />
-      <Lesson
-        name="אריאל"
-        time="17:00"
-        weekDay="שני"
-        phone="54-884-1196"
-        parentPhone="541111111"
-      />
-      <Lesson
-        name="אריאל"
-        time="18:30"
-        weekDay="שלישי"
-        phone="54-884-1196"
-        parentPhone="541111111"
-      />
+      {lessonData.map((lesson, index) => (
+        <Lesson
+          key={index}
+          name={lesson.name}
+          time={lesson.time}
+          weekDay={lesson.weekDay}
+          phone={lesson.phone}
+          parentPhone={lesson.parentPhone}
+        />
+      ))}
     </View>
   );
 }

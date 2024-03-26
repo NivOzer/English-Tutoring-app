@@ -37,13 +37,13 @@ const styles = StyleSheet.create({
     container:{
       flexDirection:"row",
       backgroundColor:"#F8F8FF",
-      width:'55%',
+      width:'60%',
       justifyContent:"space-between",
-      padding:"3%",
-      margin:"0.5%",
+      padding:"4%",
+      margin:"0.7%",
     },
     text:{
-      fontSize:18,
+      fontSize:20,
     },
 
 })
