@@ -7,6 +7,7 @@ type Props = {
   weekDay:String
   phone:String
   parentPhone:String
+  material:String[]
 }
 
 const Lesson = (props: Props) => {
@@ -24,6 +25,7 @@ const Lesson = (props: Props) => {
         weekDay={props.weekDay}
         phone={props.phone}
         parentPhone={props.parentPhone}
+        material={props.material}
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
       />

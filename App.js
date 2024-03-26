@@ -20,13 +20,15 @@ export default function App() {
       <Image style={styles.logo} source={logo} resizeMode="contain" />
       <View style={styles.lessonContainer}>
         <ScrollView contentContainerStyle={styles.scrollContent}>
-          {lessonData.map((lesson) => (
+          {lessonData.map((lesson, index) => (
             <Lesson
+              key={index}
               name={lesson.name}
               time={lesson.time}
               weekDay={lesson.weekDay}
               phone={lesson.phone}
               parentPhone={lesson.parentPhone}
+              material={lesson.material}
             />
           ))}
         </ScrollView>

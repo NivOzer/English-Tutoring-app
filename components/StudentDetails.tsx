@@ -7,6 +7,7 @@ type Props = {
     weekDay: String;
     phone: String;
     parentPhone: String;
+    material:String[];
     modalVisible: boolean;
     setModalVisible: (visible: boolean) => void;
   };
@@ -48,8 +49,9 @@ const StudentDetails = (props: Props) => {
         </TouchableOpacity>
         {showMaterial && (
             <View>
-                <Text>Material 1</Text>
-                <Text>Material 2</Text>
+              {props.material.map((material, index) => (
+                <Text key={index}>{material}</Text>
+              ))}
             </View>
         )}
 
@@ -58,7 +60,12 @@ const StudentDetails = (props: Props) => {
 
       <TouchableOpacity
         style={styles.modalClose}
-        onPress={() => setModalVisible(false)}
+        onPress={() => {
+          setModalVisible(false);
+          if (showMaterial) {
+            setShowMaterial(!showMaterial);
+          }
+        }}
       >
         <Text style={styles.modalCloseText}>Close</Text>
       </TouchableOpacity>
