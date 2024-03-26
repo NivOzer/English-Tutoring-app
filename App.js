@@ -5,9 +5,21 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Lesson name="איילון" time="17:00" weekDay="ראשון" />
-      <Lesson name="אריאל" time="17:00" weekDay="שני" />
-      <Lesson name="אריאל" time="18:30" weekDay="שלישי" />
+      {/* <Lesson name="איילון" time="17:00" weekDay="ראשון" phone="50-535-3075" /> */}
+      <Lesson
+        name="אריאל"
+        time="17:00"
+        weekDay="שני"
+        phone="54-884-1196"
+        parentPhone="541111111"
+      />
+      <Lesson
+        name="אריאל"
+        time="18:30"
+        weekDay="שלישי"
+        phone="54-884-1196"
+        parentPhone="541111111"
+      />
     </View>
   );
 }
