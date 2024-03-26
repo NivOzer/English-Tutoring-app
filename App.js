@@ -5,7 +5,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      {/* <Lesson name="איילון" time="17:00" weekDay="ראשון" phone="50-535-3075" /> */}
+      <Lesson
+        name="איילון"
+        time="17:00"
+        weekDay="ראשון"
+        phone="54-884-1196"
+        parentPhone="541111111"
+      />
       <Lesson
         name="אריאל"
         time="17:00"
