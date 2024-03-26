@@ -48,9 +48,11 @@ const StudentDetails = (props: Props) => {
         <Text style={styles.materialDetailsTitle}>חומרים לשיעור</Text>
         </TouchableOpacity>
         {showMaterial && (
-            <View>
+            <View style={styles.materialDetailsTextContainer}>
               {props.material.map((material, index) => (
-                <Text key={index}>{material}</Text>
+                <Text 
+                style={styles.materialDetailsText}
+                key={index}>{material}</Text>
               ))}
             </View>
         )}
@@ -134,4 +136,10 @@ const styles = StyleSheet.create({
         color:'white',
         padding:'10%',
       },
+      materialDetailsTextContainer:{
+        marginBottom:'1%',
+      },
+      materialDetailsText:{
+        fontSize:18
+      }
 })
