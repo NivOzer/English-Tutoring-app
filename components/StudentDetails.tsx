@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View ,Modal,TouchableOpacity,Linking} from 'react-native'
 import React,{useState} from 'react'
-
+import { Checkbox } from '@gluestack-ui/themed';
 type Props = {
     name: String;
     time: String;
@@ -13,8 +13,7 @@ type Props = {
 
 const StudentDetails = (props: Props) => {
     const { modalVisible, setModalVisible } = props;
-    const phoneNumber = "+972 " + props.phone;
-    const parentPhoneNumber = "+972 " + props.parentPhone;
+    const [showMeterial, setShowMaterial] = useState(false);
   return (
     <View>
     <Modal
@@ -32,11 +31,24 @@ const StudentDetails = (props: Props) => {
               <Text style={styles.modalDetails}>יום בשבוע: {props.weekDay}</Text>
               <View style={styles.modalDetailsContainer}>
                 <Text style={styles.modalDetails}>נייד: </Text>
-                <Text style={[styles.modalDetails, styles.modalDetailsText]} onPress={() => Linking.openURL(`tel:${phoneNumber}`)}>{phoneNumber}</Text>
+                <Text style={[styles.modalDetails, styles.modalDetailsText]} onPress={() => Linking.openURL(`tel:${props.phone}`)}>{props.phone}</Text>
               </View>
               <View style={styles.modalDetailsContainer}>
                 <Text style={styles.modalDetails}>נייד הורה: </Text>
-                <Text style={[styles.modalDetails, styles.modalDetailsText]} onPress={() => Linking.openURL(`tel:${parentPhoneNumber}`)}>{parentPhoneNumber}</Text>
+                <Text style={[styles.modalDetails, styles.modalDetailsText]} onPress={() => Linking.openURL(`tel:${props.parentPhone}`)}>{props.parentPhone}</Text>
+              </View>
+              <View style={styles.modalDetailsContainer}>
+            <TouchableOpacity onPress={() => setShowMaterial(!showMeterial)}>
+                <Text style={styles.modalDetails}>חומרים לשיעור</Text>
+            </TouchableOpacity>
+            {showMeterial && (
+            <View style={styles.checkboxMenu}>
+            {/* Checkbox menu items */}
+            <Text>Checkbox 1</Text>
+            <Text>Checkbox 2</Text>
+            {/* Add more checkboxes as needed */}
+            </View>
+        )}
               </View>
             </View>
       <TouchableOpacity
@@ -96,6 +108,13 @@ const styles = StyleSheet.create({
         fontSize:20,
         color:'white',
         padding:'10%',
-      }
-
+      },
+      checkboxMenu: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 10,
+        borderWidth: 1,
+        borderColor: 'gray',
+        padding: 10,
+      },
 })
