@@ -7,7 +7,7 @@ type Props = {
   weekDay:String
   phone:String
   parentPhone:String
-  material:String[]
+  material:string[]
 }
 
 const Lesson = (props: Props) => {

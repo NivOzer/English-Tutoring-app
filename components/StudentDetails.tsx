@@ -15,6 +15,16 @@ type Props = {
 const StudentDetails = (props: Props) => {
     const { modalVisible, setModalVisible } = props;
     const [showMaterial, setShowMaterial] = useState(false);
+
+
+    const [checkedItems, setCheckedItems] = useState(Array(props.material.length).fill(false));
+
+    const handleCheckBoxPress = (index) => {
+      const newCheckedItems = [...checkedItems];
+      newCheckedItems[index] = !newCheckedItems[index];
+      setCheckedItems(newCheckedItems);
+    };
+
   return (
     <View>
     <Modal
@@ -55,10 +65,8 @@ const StudentDetails = (props: Props) => {
                 <CheckBox
                   key={index}
                   title={material}
-                  checked={false} // Adjust checked state as needed
-                  onPress={() => {
-                    // Handle checkbox press if needed
-                  }}
+                  checked={checkedItems[index]}
+                  onPress={() => handleCheckBoxPress(index)}
                 />
               ))}
               </ScrollView>
@@ -127,7 +135,7 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         width:'60%',
         borderRadius:20,
-        marginTop:'1%',
+        marginTop:'2%',
       },
       modalCloseText:{
         fontSize:20,
@@ -143,6 +151,7 @@ const styles = StyleSheet.create({
         borderRadius:20,
       },
       materialDetailsTitle:{
+        marginTop:'1%',
         fontSize:20,
         color:'white',
         padding:'10%',
