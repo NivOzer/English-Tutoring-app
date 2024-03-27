@@ -12,12 +12,13 @@ import { NavigationContainer } from "@react-navigation/native";
 import Lesson from "./Lesson";
 import logo from "../Logo.png";
 import lessonData from "../lessons.json";
-type Props = {}
-const statusBarHeight = Platform.OS === "ios" ? 50 : (StatusBar as any).currentHeight;
+type Props = {};
+const statusBarHeight =
+  Platform.OS === "ios" ? 50 : (StatusBar as any).currentHeight;
 
 const paddingTop = statusBarHeight + 0.5 * statusBarHeight;
 const HomeScreen = (props: Props) => {
-    return (
+  return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       <Image style={styles.logo} source={logo} resizeMode="contain" />
@@ -37,32 +38,32 @@ const HomeScreen = (props: Props) => {
         </ScrollView>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#eef5ff",
-        alignItems: "center",
-        justifyContent: "center",
-        paddingTop: paddingTop,
-      },
-      logo: {
-        width: "75%",
-        height: "10%",
-        marginBottom: "5%",
-      },
-      lessonContainer: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-      },
-      scrollContent: {
-        width: "100%",
-        height: "100%",
-        alignItems: "center",
-      },
-})
+  container: {
+    flex: 1,
+    backgroundColor: "#eef5ff",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: paddingTop,
+  },
+  logo: {
+    width: "75%",
+    height: "10%",
+    marginBottom: "5%",
+  },
+  lessonContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  scrollContent: {
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+  },
+});
