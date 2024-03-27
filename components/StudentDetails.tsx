@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View ,Modal,TouchableOpacity,Linking} from 'react-native'
+import { StyleSheet, Text, View ,Modal,TouchableOpacity,Linking, ScrollView} from 'react-native'
 import React,{useState} from 'react'
 import { CheckBox } from '@rneui/themed';
 type Props = {
@@ -49,6 +49,8 @@ const StudentDetails = (props: Props) => {
         </TouchableOpacity>
         {showMaterial && (
             <View style={styles.materialDetailsTextContainer}>
+              <View style={styles.materialScroll}>
+              <ScrollView >
               {props.material.map((material, index) => (
                 <CheckBox
                   key={index}
@@ -59,6 +61,8 @@ const StudentDetails = (props: Props) => {
                   }}
                 />
               ))}
+              </ScrollView>
+              </View>
             </View>
         )}
 
@@ -104,7 +108,8 @@ const styles = StyleSheet.create({
         height:'50%'
       },
       modalDetailsContainer:{
-        alignItems:"flex-end"
+        alignItems:"flex-end",
+        marginBottom:'1%',
       },
       modalDetails:{
         fontSize:20,
@@ -122,6 +127,7 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         width:'60%',
         borderRadius:20,
+        marginTop:'1%',
       },
       modalCloseText:{
         fontSize:20,
@@ -142,9 +148,13 @@ const styles = StyleSheet.create({
         padding:'10%',
       },
       materialDetailsTextContainer:{
-        marginBottom:'1%',
+        marginBottom:'2%',
       },
       materialDetailsText:{
         fontSize:18
-      }
+      },
+      materialScroll:{
+        marginTop:'1%',
+        height:100,
+      },
 })
