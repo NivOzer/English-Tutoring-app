@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View ,Modal,TouchableOpacity,Linking} from 'react-native'
 import React,{useState} from 'react'
-
+import { CheckBox } from '@rneui/themed';
 type Props = {
     name: String;
     time: String;
     weekDay: String;
     phone: String;
     parentPhone: String;
-    material:String[];
+    material:string[];
     modalVisible: boolean;
     setModalVisible: (visible: boolean) => void;
   };
@@ -50,9 +50,14 @@ const StudentDetails = (props: Props) => {
         {showMaterial && (
             <View style={styles.materialDetailsTextContainer}>
               {props.material.map((material, index) => (
-                <Text 
-                style={styles.materialDetailsText}
-                key={index}>{material}</Text>
+                <CheckBox
+                  key={index}
+                  title={material}
+                  checked={false} // Adjust checked state as needed
+                  onPress={() => {
+                    // Handle checkbox press if needed
+                  }}
+                />
               ))}
             </View>
         )}
