@@ -2,11 +2,44 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import Input from "./Input";
 import Ionicons from "react-native-vector-icons/Ionicons";
-
+import lessons from "../lessons.json";
 type Props = {};
 
 const EditScreen = (props: Props) => {
   const [showForm, setShowForm] = React.useState(false);
+  const [lessonData, setLessonData] = useState({
+    name: "",
+    time: "",
+    weekDay: "",
+    phone: "",
+    parentPhone: "",
+    materials: "",
+  });
+
+  const handleInputChange = (label: string, value: string) => {
+    setLessonData((prevLessonData) => ({
+      ...prevLessonData,
+      [label]: value,
+    }));
+  };
+
+  const handleSubmit = () => {
+    // Constructing new lesson object
+    const newLesson = {
+      name: lessonData.name,
+      time: lessonData.time,
+      weekDay: lessonData.weekDay,
+      phone: lessonData.phone,
+      parentPhone: lessonData.parentPhone,
+      material: lessonData.materials.split(","), // Splitting materials string into an array
+    };
+
+    console.log("New Lesson:", newLesson);
+
+    addToLessons(newLesson);
+    // You can perform additional actions here, such as sending the data to a server or updating local storage.
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -18,13 +51,34 @@ const EditScreen = (props: Props) => {
       </TouchableOpacity>
       {showForm && (
         <>
-          <Input Label="שם:" />
-          <Input Label="שעה:" />
-          <Input Label="תאריך:" />
-          <Input Label="נייד:" />
-          <Input Label="נייד הורה:" />
-          <Input Label="חומרים לשיעור:" />
-          <TouchableOpacity style={styles.addLessonButton}>
+          <Input
+            Label="שם:"
+            onChangeText={(value) => handleInputChange("name", value)}
+          />
+          <Input
+            Label="שעה:"
+            onChangeText={(value) => handleInputChange("time", value)}
+          />
+          <Input
+            Label="תאריך:"
+            onChangeText={(value) => handleInputChange("weekDay", value)}
+          />
+          <Input
+            Label="נייד:"
+            onChangeText={(value) => handleInputChange("phone", value)}
+          />
+          <Input
+            Label="נייד הורה:"
+            onChangeText={(value) => handleInputChange("parentPhone", value)}
+          />
+          <Input
+            Label="חומרים לשיעור:"
+            onChangeText={(value) => handleInputChange("material", value)}
+          />
+          <TouchableOpacity
+            style={styles.addLessonButton}
+            onPress={handleSubmit}
+          >
             <Text style={styles.addLessonButtonText}>הוספה</Text>
           </TouchableOpacity>
         </>
@@ -37,6 +91,8 @@ const EditScreen = (props: Props) => {
     </View>
   );
 };
+
+// const addToLessons = async (newLesson: Lesson) => {};
 
 export default EditScreen;
 

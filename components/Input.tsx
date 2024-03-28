@@ -3,6 +3,7 @@ import React from "react";
 
 type Props = {
   Label: string;
+  onChangeText: (value: string) => void;
 };
 
 const Input = (props: Props) => {
@@ -12,6 +13,7 @@ const Input = (props: Props) => {
         style={styles.InputText}
         placeholder={props.Label}
         placeholderTextColor="black"
+        onChangeText={props.onChangeText}
       ></TextInput>
     </View>
   );
