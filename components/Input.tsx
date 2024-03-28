@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center", //vertical allignment
     textAlign: "center",
+    //
   },
   InputText: {
     fontSize: 20,
