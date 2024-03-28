@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowOffset: { width: 0, height: 0 },
     shadowRadius: 0.1,
-    padding: 16, // Use a specific value for padding instead of a percentage
-    margin: 7, // Use a specific value for margin instead of a percentage
+    padding: "3.5%", // Use a specific value for padding instead of a percentage
+    margin: "1%", // Use a specific value for margin instead of a percentage
     width: "60%",
     justifyContent: "space-between",
   },
