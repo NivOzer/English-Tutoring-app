@@ -28,11 +28,11 @@ const styles = StyleSheet.create({
     height: "6%",
     margin: "1%",
     alignItems: "center",
-    justifyContent: "center", //vertical allignment
-    textAlign: "center",
   },
   InputText: {
     fontSize: 20,
     width: "100%",
+    justifyContent: "center", //vertical allignment
+    textAlign: "right",
   },
 });

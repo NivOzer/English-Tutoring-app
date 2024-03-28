@@ -11,9 +11,12 @@ const EditScreen = (props: Props) => {
       <TouchableOpacity>
         <Ionicons name="add-circle" size={50} color="#84dd8c" />
       </TouchableOpacity>
-      <Input Label="הוסף שם" />
-      <Input Label="" />
-      <Input Label="" />
+      <Input Label="שם:" />
+      <Input Label="שעה:" />
+      <Input Label="תאריך:" />
+      <Input Label="נייד:" />
+      <Input Label="נייד הורה:" />
+      <Input Label="חומרים לשיעור:" />
     </View>
   );
 };
