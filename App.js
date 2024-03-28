@@ -17,12 +17,17 @@ export default function App() {
       <Tab.Navigator
         initialRouteName="Home"
         screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+          tabBarIcon: ({ focused, color }) => {
             const iconName = focused
               ? iconNames[route.name]
               : `${iconNames[route.name]}`;
-            return <Ionicons name={iconName} size={size} color={color} />;
+            return <Ionicons name={iconName} size={35} color={color} />;
           },
+          tabBarStyle: [
+            {
+              ...styles.tabNav,
+            },
+          ],
         })}
       >
         <Tab.Screen
@@ -47,6 +52,5 @@ const styles = StyleSheet.create({
   tabNav: {
     backgroundColor: "#eef5ff",
     borderTopWidth: 0,
-    elevation: 5,
   },
 });
