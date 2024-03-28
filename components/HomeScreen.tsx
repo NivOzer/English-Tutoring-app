@@ -24,6 +24,7 @@ const HomeScreen = (props: Props) => {
       <Image style={styles.logo} source={logo} resizeMode="contain" />
       <View style={styles.lessonContainer}>
         <ScrollView contentContainerStyle={styles.scrollContent}>
+          <Text style={styles.myLessonsLabel}>השיעורים שלי:</Text>
           {lessonData.map((lesson, index) => (
             <Lesson
               key={index}
@@ -65,5 +66,9 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     alignItems: "center",
+  },
+  myLessonsLabel: {
+    fontSize: 25,
+    marginBottom: "3%",
   },
 });
