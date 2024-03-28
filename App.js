@@ -10,7 +10,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   const iconNames = {
     Home: "home",
-    Edit: "create",
+    Edit: "hammer",
   };
   return (
     <NavigationContainer>
@@ -23,6 +23,7 @@ export default function App() {
               : `${iconNames[route.name]}`;
             return <Ionicons name={iconName} size={35} color={color} />;
           },
+          tabBarShowLabel: false, // Hide tab labels
           tabBarStyle: [
             {
               ...styles.tabNav,
@@ -52,5 +53,6 @@ const styles = StyleSheet.create({
   tabNav: {
     backgroundColor: "#eef5ff",
     borderTopWidth: 0,
+    paddingBottom: "11%",
   },
 });

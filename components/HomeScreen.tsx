@@ -49,12 +49,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#eef5ff",
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: paddingTop,
+    paddingTop: paddingTop * 2,
   },
   logo: {
     width: "75%",
-    height: "10%",
-    marginBottom: "5%",
+    height: "11%",
+    marginBottom: "10%",
   },
   lessonContainer: {
     flex: 1,

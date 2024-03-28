@@ -25,6 +25,13 @@ const EditScreen = (props: Props) => {
           <Input Label="חומרים לשיעור:" />
         </>
       )}
+
+      <TouchableOpacity
+        style={styles.addButton}
+        onPress={() => setShowForm(!showForm)}
+      >
+        <Ionicons name="add-circle" size={50} color="#54c85e" />
+      </TouchableOpacity>
     </View>
   );
 };
