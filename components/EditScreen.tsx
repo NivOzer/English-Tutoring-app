@@ -1,12 +1,16 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import Input from "./Input";
 import Ionicons from "react-native-vector-icons/Ionicons";
+
 type Props = {};
 
 const EditScreen = (props: Props) => {
   return (
     <View style={styles.container}>
+      <TouchableOpacity>
+        <Ionicons name="add-circle" size={50} color="#84dd8c" />
+      </TouchableOpacity>
       <Input Label="הוסף שם" />
       <Input Label="" />
       <Input Label="" />
