@@ -11,7 +11,7 @@ const Input = (props: Props) => {
       <TextInput
         style={styles.InputText}
         placeholder={props.Label}
-        placeholderTextColor="white"
+        placeholderTextColor="black"
       ></TextInput>
     </View>
   );
@@ -21,13 +21,19 @@ export default Input;
 
 const styles = StyleSheet.create({
   InputContainer: {
-    backgroundColor: "#b8c4d6",
-    padding: "3%",
-    borderRadius: 10,
-    width: "50%",
-    height: "6%",
-    margin: "1%",
-    alignItems: "center",
+    flexDirection: "row",
+    backgroundColor: "rgba(255, 255, 255, 0.1)", // Background color with opacity
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.18)", // Border color with opacity
+    shadowColor: "#000",
+    shadowOpacity: 1,
+    shadowOffset: { width: 0, height: 0 },
+    shadowRadius: 0.1,
+    padding: 16, // Use a specific value for padding instead of a percentage
+    margin: 7, // Use a specific value for margin instead of a percentage
+    width: "60%",
+    justifyContent: "space-between",
   },
   InputText: {
     fontSize: 20,
