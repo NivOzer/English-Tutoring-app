@@ -11,13 +11,26 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import Lesson from "./Lesson";
 import logo from "../Logo.png";
-import lessonData from "../lessons.json";
-type Props = {};
+// import lessonData from "../lessons.json";
+
+// Define the type for lesson data object
+type LessonData = {
+  name: string;
+  time: string;
+  weekDay: string;
+  phone: string;
+  parentPhone: string;
+  materials: string[]; // Assuming materials is a string
+};
+type Props = {
+  lessonsData?: LessonData[]; // Define the type of lessonsData
+};
 const statusBarHeight =
   Platform.OS === "ios" ? 50 : (StatusBar as any).currentHeight;
 
 const paddingTop = statusBarHeight + 0.5 * statusBarHeight;
 const HomeScreen = (props: Props) => {
+  let { lessonsData } = props;
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -25,7 +38,7 @@ const HomeScreen = (props: Props) => {
       <View style={styles.lessonContainer}>
         <ScrollView contentContainerStyle={styles.scrollContent}>
           <Text style={styles.myLessonsLabel}>השיעורים שלי:</Text>
-          {lessonData.map((lesson, index) => (
+          {lessonsData.map((lesson, index) => (
             <Lesson
               key={index}
               name={lesson.name}
@@ -33,7 +46,7 @@ const HomeScreen = (props: Props) => {
               weekDay={lesson.weekDay}
               phone={lesson.phone}
               parentPhone={lesson.parentPhone}
-              material={lesson.material}
+              material={lesson.materials}
             />
           ))}
         </ScrollView>

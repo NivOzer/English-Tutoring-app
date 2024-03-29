@@ -6,11 +6,17 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./components/HomeScreen";
 import EditScreen from "./components/EditScreen";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import React, { useState } from "react";
 const Tab = createBottomTabNavigator();
+
 export default function App() {
   const iconNames = {
     Home: "home",
     Edit: "hammer",
+  };
+  const [lessonsData, setLessonsData] = React.useState([]);
+  const addLesson = (newLesson) => {
+    setLessonsData((prevLessonsData) => [...prevLessonsData, newLesson]);
   };
   return (
     <NavigationContainer>
@@ -33,12 +39,12 @@ export default function App() {
       >
         <Tab.Screen
           name="Home"
-          component={HomeScreen}
+          component={() => <HomeScreen lessonsData={lessonsData} />}
           options={{ headerShown: false }}
         />
         <Tab.Screen
           name="Edit"
-          component={EditScreen}
+          component={() => <EditScreen addLesson={addLesson} />}
           options={{ headerShown: false }}
         />
       </Tab.Navigator>

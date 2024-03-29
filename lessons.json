@@ -1,40 +1,39 @@
 [
-    {
-      "name": "איילון",
-      "time": "17:00",
-      "weekDay": "ראשון",
-      "phone": "054-884-1196",
-      "parentPhone": "054-111-1111",
-      "material":[
-        "Vocabulary",
-        "Times Practicing",
-        "Unseen",
-        "Present Perfect"
-      ]
-    },
-    {
-      "name": "אריאל",
-      "time": "17:00",
-      "weekDay": "שני",
-      "phone": "054-884-1196",
-      "parentPhone": "054-111-1111",
-      "material":[
-        "Past Simple",
-        "Future Simple",
-        "Ied rules",
-        "Ing rules"
-      ]
-    },
-    {
-      "name": "אריאל",
-      "time": "18:30",
-      "weekDay": "שלישי",
-      "phone": "054-884-1196",
-      "parentPhone": "054-111-1111",
-      "material":[
-        "Unseen",
-        "At,On,In"
-      ]
-    }
-  ]
-  
+  {
+    "name": "איילון",
+    "time": "17:00",
+    "weekDay": "ראשון",
+    "phone": "054-884-1196",
+    "parentPhone": "054-111-1111",
+    "material":[
+      "Vocabulary",
+      "Times Practicing",
+      "Unseen",
+      "Present Perfect"
+    ]
+  },
+  {
+    "name": "אריאל",
+    "time": "17:00",
+    "weekDay": "שני",
+    "phone": "054-884-1196",
+    "parentPhone": "054-111-1111",
+    "material":[
+      "Past Simple",
+      "Future Simple",
+      "Ied rules",
+      "Ing rules"
+    ]
+  },
+  {
+    "name": "אריאל",
+    "time": "18:30",
+    "weekDay": "שלישי",
+    "phone": "054-884-1196",
+    "parentPhone": "054-111-1111",
+    "material":[
+      "Unseen",
+      "At,On,In"
+    ]
+  }
+]

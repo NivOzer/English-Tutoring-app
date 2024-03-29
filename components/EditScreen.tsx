@@ -2,10 +2,19 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import Input from "./Input";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import lessons from "../lessons.json";
-type Props = {};
+type LessonData = {
+  name: string;
+  time: string;
+  weekDay: string;
+  phone: string;
+  parentPhone: string;
+  materials: string[]; // Assuming materials is a string
+};
+type Props = {
+  addLesson: (newLesson: LessonData) => void; // Define the type of addLesson
+};
 
-const EditScreen = (props: Props) => {
+const EditScreen = ({ addLesson }: Props) => {
   const [showForm, setShowForm] = React.useState(false);
   const [lessonData, setLessonData] = useState({
     name: "",
@@ -31,12 +40,13 @@ const EditScreen = (props: Props) => {
       weekDay: lessonData.weekDay,
       phone: lessonData.phone,
       parentPhone: lessonData.parentPhone,
-      material: lessonData.materials.split(","), // Splitting materials string into an array
+      materials: lessonData.materials
+        .split(",")
+        .map((material) => material.trim()), // Splitting materials string into an array
     };
 
     console.log("New Lesson:", newLesson);
-
-    addToLessons(newLesson);
+    addLesson(newLesson);
     // You can perform additional actions here, such as sending the data to a server or updating local storage.
   };
 
