@@ -18,6 +18,12 @@ export default function App() {
   const addLesson = (newLesson) => {
     setLessonsData((prevLessonsData) => [...prevLessonsData, newLesson]);
   };
+  const deleteLesson = (selectedLesson) => {
+    setLessonsData((prevLessonsData) =>
+      prevLessonsData.filter((lesson) => lesson !== selectedLesson)
+    );
+  };
+
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -45,7 +51,11 @@ export default function App() {
         <Tab.Screen
           name="Edit"
           children={() => (
-            <EditScreen addLesson={addLesson} data={lessonsData} />
+            <EditScreen
+              addLesson={addLesson}
+              deleteLesson={deleteLesson}
+              data={lessonsData}
+            />
           )}
           options={{ headerShown: false }}
         />

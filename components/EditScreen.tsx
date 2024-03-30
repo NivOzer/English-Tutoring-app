@@ -14,14 +14,16 @@ type LessonData = {
 };
 type Props = {
   addLesson: (newLesson: LessonData) => void; // Define the type of addLesson
+  deleteLesson: (selectedLesson: LessonData) => void; // Define the type of addLesson
   data: LessonData[];
 };
 
-const EditScreen = ({ addLesson, data }: Props) => {
+const EditScreen = ({ addLesson, deleteLesson, data }: Props) => {
   console.log(data);
 
   const [showForm, setShowForm] = React.useState(false);
   const [selectLessonShow, setSelectLessonShow] = React.useState(false);
+  const [lessonSelected, setLessonSelected] = React.useState(false);
   const [lessonData, setLessonData] = useState({
     name: "",
     time: "",
@@ -111,6 +113,7 @@ const EditScreen = ({ addLesson, data }: Props) => {
         <SelectDropdown
           data={data}
           onSelect={(selectedItem, index) => {
+            setLessonSelected(true);
             console.log(selectedItem, index);
           }}
           renderButton={(selectedItem, isOpened) => {
@@ -129,6 +132,18 @@ const EditScreen = ({ addLesson, data }: Props) => {
                 <Text style={styles.dropdownButtonTxtStyle}>
                   {(selectedItem && selectedItem.title) || "בחר שיעור"}
                 </Text>
+                {lessonSelected && (
+                  <>
+                    <TouchableOpacity
+                      style={styles.modalClose}
+                      onPress={() => {
+                        deleteLesson(selectedItem);
+                      }}
+                    >
+                      <Text style={styles.modalCloseText}>מחק שיעור</Text>
+                    </TouchableOpacity>
+                  </>
+                )}
               </View>
             );
           }}
@@ -242,5 +257,18 @@ const styles = StyleSheet.create({
   dropdownItemIconStyle: {
     fontSize: 28,
     marginRight: 8,
+  },
+
+  modalClose: {
+    backgroundColor: "#db4c64",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "60%",
+    borderRadius: 20,
+  },
+  modalCloseText: {
+    fontSize: 20,
+    color: "white",
+    padding: "10%",
   },
 });
