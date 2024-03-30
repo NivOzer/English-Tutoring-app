@@ -39,12 +39,12 @@ export default function App() {
       >
         <Tab.Screen
           name="Home"
-          component={() => <HomeScreen lessonsData={lessonsData} />}
+          children={() => <HomeScreen lessonsData={lessonsData} />}
           options={{ headerShown: false }}
         />
         <Tab.Screen
           name="Edit"
-          component={() => (
+          children={() => (
             <EditScreen addLesson={addLesson} data={lessonsData} />
           )}
           options={{ headerShown: false }}
