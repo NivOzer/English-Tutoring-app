@@ -43,12 +43,12 @@ const HomeScreen = (props: Props) => {
             <View style={styles.noLessonsFieldAlert}>
               <Ionicons name="alert-circle-outline" size={60} />
               <Text style={styles.noLessonsFieldAlertText}>
-                No Available Lessons
+                אין שיעורים זמינים
               </Text>
             </View>
             <View style={styles.noLessonsFieldDown}>
               <Text style={styles.noLessonsFieldDownText}>
-                You can Add more lesson In "Edit" tab below
+                באפשרותך להוסיף שיעורים בחלונית העריכה
               </Text>
               <Ionicons name="arrow-down" size={30} />
             </View>
@@ -115,12 +115,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: "50%",
     marginTop: "30%",
-    height: "15%",
-    justifyContent: "space-between",
+    height: "20%",
+    justifyContent: "space-evenly",
+    // backgroundColor: "yellow",
   },
   noLessonsFieldDown: {
     alignItems: "center",
-    height: "25%",
+    height: "20%",
     justifyContent: "space-evenly",
   },
   noLessonsFieldAlertText: { fontSize: 20 },
