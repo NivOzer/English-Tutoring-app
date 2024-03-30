@@ -195,8 +195,8 @@ const styles = StyleSheet.create({
   },
   // Select DropDown
   dropdownButtonStyle: {
-    width: 200,
-    height: 50,
+    width: "60%",
+    padding: "3.5%",
     backgroundColor: "#E9ECEF",
     borderRadius: 12,
     flexDirection: "row",
@@ -206,15 +206,17 @@ const styles = StyleSheet.create({
   },
   dropdownButtonTxtStyle: {
     flex: 1,
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "500",
     color: "#151E26",
+    textAlign: "right",
+    marginEnd: "5%",
   },
   dropdownButtonArrowStyle: {
-    fontSize: 28,
+    fontSize: 20,
   },
   dropdownButtonIconStyle: {
-    fontSize: 28,
+    fontSize: 20,
     marginRight: 8,
   },
   dropdownMenuStyle: {
