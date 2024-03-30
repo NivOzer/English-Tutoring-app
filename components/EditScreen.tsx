@@ -236,6 +236,8 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: "#151E26",
     padding: "3.5%",
+    textAlign: "right",
+    marginEnd: "5%",
   },
   dropdownItemIconStyle: {
     fontSize: 28,
