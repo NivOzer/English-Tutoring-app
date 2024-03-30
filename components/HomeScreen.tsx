@@ -11,6 +11,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import Lesson from "./Lesson";
 import logo from "../Logo.png";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Ionicons from "react-native-vector-icons/Ionicons";
 // import lessonData from "../lessons.json";
 
 // Define the type for lesson data object
@@ -37,7 +39,20 @@ const HomeScreen = (props: Props) => {
       <Image style={styles.logo} source={logo} resizeMode="contain" />
       <View style={styles.lessonContainer}>
         {lessonsData.length === 0 ? (
-          <Text>No Available Lessons</Text>
+          <View style={styles.noLessonsField}>
+            <View style={styles.noLessonsFieldAlert}>
+              <Ionicons name="alert-circle-outline" size={60} />
+              <Text style={styles.noLessonsFieldAlertText}>
+                No Available Lessons
+              </Text>
+            </View>
+            <View style={styles.noLessonsFieldDown}>
+              <Text style={styles.noLessonsFieldDownText}>
+                You can Add more lesson In "Edit" tab below
+              </Text>
+              <Ionicons name="arrow-down" size={30} />
+            </View>
+          </View>
         ) : (
           <>
             <Text style={styles.myLessonsLabel}>השיעורים שלי</Text>
@@ -90,4 +105,24 @@ const styles = StyleSheet.create({
     fontSize: 25,
     marginBottom: "3%",
   },
+  //No lesson field
+  noLessonsField: {
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center",
+  },
+  noLessonsFieldAlert: {
+    alignItems: "center",
+    marginBottom: "50%",
+    marginTop: "30%",
+    height: "15%",
+    justifyContent: "space-between",
+  },
+  noLessonsFieldDown: {
+    alignItems: "center",
+    height: "25%",
+    justifyContent: "space-evenly",
+  },
+  noLessonsFieldAlertText: { fontSize: 20 },
+  noLessonsFieldDownText: { fontSize: 15 },
 });

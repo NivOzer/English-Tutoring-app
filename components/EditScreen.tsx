@@ -99,7 +99,6 @@ const EditScreen = ({ addLesson, data }: Props) => {
           </TouchableOpacity>
         </>
       )}
-
       <TouchableOpacity
         style={styles.button}
         onPress={() => setSelectLessonShow(!selectLessonShow)}
@@ -107,6 +106,7 @@ const EditScreen = ({ addLesson, data }: Props) => {
         <Ionicons name="create" size={60} color="#99cccccc" />
         <Text style={styles.buttonText}>ערוך שיעור:</Text>
       </TouchableOpacity>
+      {/* SelectDropdown */}
       {selectLessonShow && (
         <SelectDropdown
           data={data}
@@ -132,7 +132,7 @@ const EditScreen = ({ addLesson, data }: Props) => {
               </View>
             );
           }}
-          renderItem={(item, index, isSelected) => {
+          renderItem={(lesson, index, isSelected) => {
             return (
               <View
                 style={{
@@ -140,8 +140,7 @@ const EditScreen = ({ addLesson, data }: Props) => {
                   ...(isSelected && { backgroundColor: "#D2D9DF" }),
                 }}
               >
-                <Icon name={item.icon} style={styles.dropdownItemIconStyle} />
-                <Text style={styles.dropdownItemTxtStyle}>{item.title}</Text>
+                <Text style={styles.dropdownItemTxtStyle}>{lesson.name}</Text>
               </View>
             );
           }}
@@ -236,6 +235,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "500",
     color: "#151E26",
+    padding: "3.5%",
   },
   dropdownItemIconStyle: {
     fontSize: 28,
