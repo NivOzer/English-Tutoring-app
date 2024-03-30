@@ -12,9 +12,11 @@ type LessonData = {
 };
 type Props = {
   addLesson: (newLesson: LessonData) => void; // Define the type of addLesson
+  data: LessonData[];
 };
 
-const EditScreen = ({ addLesson }: Props) => {
+const EditScreen = ({ addLesson, data }: Props) => {
+  console.log(data);
   const [showForm, setShowForm] = React.useState(false);
   const [lessonData, setLessonData] = useState({
     name: "",

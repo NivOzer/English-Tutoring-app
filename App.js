@@ -44,7 +44,9 @@ export default function App() {
         />
         <Tab.Screen
           name="Edit"
-          component={() => <EditScreen addLesson={addLesson} />}
+          component={() => (
+            <EditScreen addLesson={addLesson} data={lessonsData} />
+          )}
           options={{ headerShown: false }}
         />
       </Tab.Navigator>
