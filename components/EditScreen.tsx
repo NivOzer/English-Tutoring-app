@@ -19,6 +19,7 @@ type Props = {
 };
 
 const EditScreen = ({ addLesson, deleteLesson, data }: Props) => {
+  let selectedLesson: LessonData;
   console.log(data);
 
   const [showForm, setShowForm] = React.useState(false);
@@ -114,6 +115,7 @@ const EditScreen = ({ addLesson, deleteLesson, data }: Props) => {
           data={data}
           onSelect={(selectedItem, index) => {
             setLessonSelected(true);
+            selectedLesson = selectedItem;
             console.log(selectedItem, index);
           }}
           renderButton={(selectedItem, isOpened) => {
@@ -130,20 +132,8 @@ const EditScreen = ({ addLesson, deleteLesson, data }: Props) => {
                   style={styles.dropdownButtonArrowStyle}
                 />
                 <Text style={styles.dropdownButtonTxtStyle}>
-                  {(selectedItem && selectedItem.title) || "בחר שיעור"}
+                  {(selectedItem && selectedItem.name) || "בחר שיעור"}
                 </Text>
-                {lessonSelected && (
-                  <>
-                    <TouchableOpacity
-                      style={styles.modalClose}
-                      onPress={() => {
-                        deleteLesson(selectedItem);
-                      }}
-                    >
-                      <Text style={styles.modalCloseText}>מחק שיעור</Text>
-                    </TouchableOpacity>
-                  </>
-                )}
               </View>
             );
           }}
@@ -162,6 +152,19 @@ const EditScreen = ({ addLesson, deleteLesson, data }: Props) => {
           showsVerticalScrollIndicator={false}
           dropdownStyle={styles.dropdownMenuStyle}
         />
+      )}
+
+      {lessonSelected && selectLessonShow && (
+        <>
+          <TouchableOpacity
+            style={styles.modalClose}
+            onPress={() => {
+              deleteLesson(selectedLesson);
+            }}
+          >
+            <Text style={styles.modalCloseText}>מחק שיעור</Text>
+          </TouchableOpacity>
+        </>
       )}
     </View>
   );
