@@ -36,20 +36,26 @@ const HomeScreen = (props: Props) => {
       <StatusBar style="auto" />
       <Image style={styles.logo} source={logo} resizeMode="contain" />
       <View style={styles.lessonContainer}>
-        <ScrollView contentContainerStyle={styles.scrollContent}>
-          <Text style={styles.myLessonsLabel}>השיעורים שלי:</Text>
-          {lessonsData.map((lesson, index) => (
-            <Lesson
-              key={index}
-              name={lesson.name}
-              time={lesson.time}
-              weekDay={lesson.weekDay}
-              phone={lesson.phone}
-              parentPhone={lesson.parentPhone}
-              material={lesson.materials}
-            />
-          ))}
-        </ScrollView>
+        {lessonsData.length === 0 ? (
+          <Text>No Available Lessons</Text>
+        ) : (
+          <>
+            <Text style={styles.myLessonsLabel}>השיעורים שלי</Text>
+            <ScrollView contentContainerStyle={styles.scrollContent}>
+              {lessonsData.map((lesson, index) => (
+                <Lesson
+                  key={index}
+                  name={lesson.name}
+                  time={lesson.time}
+                  weekDay={lesson.weekDay}
+                  phone={lesson.phone}
+                  parentPhone={lesson.parentPhone}
+                  material={lesson.materials}
+                />
+              ))}
+            </ScrollView>
+          </>
+        )}
       </View>
     </View>
   );
