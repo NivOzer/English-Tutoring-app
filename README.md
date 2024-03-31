@@ -1,3 +1,3 @@
-# English Tutor App
+# English Tutoring App
 
 ![screenshot](screenshot.png)
