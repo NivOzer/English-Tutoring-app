@@ -1,9 +1,7 @@
 # English Tutoring App
 
 <p align="center">
-
-### Images:
-
+  <strong>Images:</strong>
 </p>
 
 <p align="center">
