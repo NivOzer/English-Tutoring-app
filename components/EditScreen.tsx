@@ -104,7 +104,9 @@ const EditScreen = ({ addLesson, deleteLesson, data }: Props) => {
       )}
       <TouchableOpacity
         style={styles.button}
-        onPress={() => setSelectLessonShow(!selectLessonShow)}
+        onPress={() => {
+          setSelectLessonShow(!selectLessonShow);
+        }}
       >
         <Ionicons name="create" size={60} color="#99cccccc" />
         <Text style={styles.buttonText}>ערוך שיעור:</Text>
@@ -268,10 +270,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "60%",
     borderRadius: 20,
+    marginTop: "3.5%",
   },
   modalCloseText: {
     fontSize: 20,
     color: "white",
-    padding: "10%",
+
+    padding: "5%",
   },
 });
