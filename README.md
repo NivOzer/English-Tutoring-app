@@ -1,6 +1,10 @@
 # English Tutoring App
 
+<p align="center">
+
 ### Images:
+
+</p>
 
 <p align="center">
   <img src="/images/image1.png" alt="Image 1" width="150"/>
