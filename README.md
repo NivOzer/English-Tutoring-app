@@ -10,9 +10,7 @@ Built with react-native and Typescript using expo-go bundling
 
 Lesson Planning Tools: Access a variety of lesson planning tools and resources to create dynamic and engaging lesson plans tailored to your students' needs and proficiency levels.
 
-<p align="center">
-  <strong>Images:</strong>
-</p>
+<br>
 
 <p align="center">
   <img src="/images/image1.png" alt="Image 1" width="200"/>
